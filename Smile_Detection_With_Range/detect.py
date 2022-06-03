@@ -41,6 +41,8 @@ while True:
     frame = imutils.resize(frame, width=450)
     gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
     rects = detector(gray, 0)
+    # For each face detected in the image, this chunk of code creates a ROI around the face and pass it as an argument to the 
+    # facial landmark detector and append the result to the array landmarks 
     for rect in rects:
         shape = predictor(gray, rect)
         shape = face_utils.shape_to_np(shape)
